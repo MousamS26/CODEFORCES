@@ -8,5 +8,14 @@ int main()
 	freopen("out.txt", "w", stdout);
 #endif
 
-
+	string p;
+	cin >> p;
+	if (p.find_first_of("HQ9") != string::npos)
+	{
+		cout << "YES" << endl;
+	}
+	else
+	{
+		cout << "NO";
+	}
 }
