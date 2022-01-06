@@ -9,30 +9,28 @@ int main()
 	freopen("out.txt", "w", stdout);
 #endif
 
-	ll n;
+	int n, m;
+	int pos[100001];
+
 	cin >> n;
-
-	ll a[100005];
-	for (int i = 1; i <= n; i++)
-		cin >> a[i];
-
-	ll Vasya[100005];
-	ll Petya[1000005];
-	for (int i = 1; i <= n; i++)
-		Vasya[a[i]] = i;
-	for (int i = n; i >= 1; i--)
-		Petya[a[i]] = n - i + 1;
-
-	ll m;
-	cin >> m;
-
-	ll ansleft = 0, ansright = 0;
-	while (m--) {
-		int x;
-		cin >> x;
-		ansleft += Vasya[x];
-		ansright += Petya[x];
+	for (int i = 0; i < n; i++)
+	{
+		int num;
+		cin >> num;
+		pos[num] = i + 1;
 	}
-	cout << ansleft << " " << ansright << endl;
+
+	ll vasya = 0, petya = 0;
+
+	cin >> m;
+	while (m--)
+	{
+		int b;
+		cin >> b;
+		vasya += pos[b];
+		petya += n - pos[b] + 1;
+	}
+
+	cout << vasya << " " << petya << endl;
 
 }
